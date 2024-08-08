@@ -9,7 +9,7 @@ BEGIN
     IF OLD.email != NEW.email THEN
         SET NEW.valid_email = 0;
     ELSE
-        SET NEW.valid_email = NEW.VALID_EMAIL;
+        SET NEW.valid_email = NEW.valid_email;
     END IF;
 END $$
 DELIMITER ;
