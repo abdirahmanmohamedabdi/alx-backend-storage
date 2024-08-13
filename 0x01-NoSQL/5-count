@@ -1,0 +1,2 @@
+// write a script that displays the number of cuments
+db.school.count()
