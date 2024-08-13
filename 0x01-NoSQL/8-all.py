@@ -2,7 +2,7 @@
 """
 This module lists all documents
 """
-import mango
+import pymongo
 
 
 def list_all(mongo_collection):
