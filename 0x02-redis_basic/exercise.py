@@ -20,7 +20,7 @@ def count_calls(method: Callable) -> Callable:
         key = method.__qualname__
         self._redis.incr(key)
         return method(self, *args, **kwargs)
-    
+
     return wrapper
 
 
@@ -56,7 +56,8 @@ def replay(method: Callable) -> None:
     inputs = cache.lrange(name + ":inputs", 0, -1)
     outputs = cache.lrange(name + ":outputs", 0, -1)
     for i, o in zip(inputs, outputs):
-        print("{}(*{}) -> {}".format(name, i.decode('utf-8'), o.decode('utf-8')))
+        print("{}(*{}) -> {}".format(name, i.decode('utf-8'),
+        o.decode('utf-8')))
 
 
 class Cache:
@@ -89,7 +90,7 @@ class Cache:
             if data is not None and fn is not None and callable(fn):
                 return fn(data)
             return data
-        
+
     def get_str(self, key: str) -> str:
         """
         gets data as a string
