@@ -83,13 +83,13 @@ class Cache:
 
     def get(self, key: str, fn: Optional[Callable] = None) \
             -> Union[str, bytes, int, float, None]:
-            """
-            Get data from the redis cache
-            """
-            data = self._redis.get(key)
-            if data is not None and fn is not None and callable(fn):
-                return fn(data)
-            return data
+        """
+        Get data from the redis cache
+        """
+        data = self._redis.get(key)
+        if data is not None and fn is not None and callable(fn):
+            return fn(data)
+        return data
 
     def get_str(self, key: str) -> str:
         """
