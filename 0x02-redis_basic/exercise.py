@@ -57,7 +57,7 @@ def replay(method: Callable) -> None:
     outputs = cache.lrange(name + ":outputs", 0, -1)
     for i, o in zip(inputs, outputs):
         print("{}(*{}) -> {}".format(name, i.decode('utf-8'),
-        o.decode('utf-8')))
+                                     o.decode('utf-8')))
 
 
 class Cache:
@@ -81,7 +81,7 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable] = None)\
+    def get(self, key: str, fn: Optional[Callable] = None) \
             -> Union[str, bytes, int, float, None]:
             """
             Get data from the redis cache
